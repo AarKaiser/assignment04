@@ -16,55 +16,55 @@ let qnaArray = [
   {
     question: "What type of element is a <p> in HTML?",
     answers: ["Header", "Body", "Paragraph", "Main"],
-    rAns: "Paragraph",
+    correct: "Paragraph",
   },
   {
     question: "What language is primarily used to style a web page?",
     answers: ["HTML", "CSS", "JavaScript", "C++"],
-    rAns: "CSS",
+    correct: "CSS",
   },
   {
     question: "Which is not the name of one of your instructors?",
     answers: ["Deep", "Luca", "Lucifer", "Devon"],
-    rAns: "Lucifer",
+    correct: "Lucifer",
   },
 
   {
     question: "How difficult was this assignment?",
     answers: ["Easy", "Difficult", "Hard", "Impossible"],
-    rAns: "Hard",
+    correct: "Hard",
   },
   {
     question: "Where is it best practice to code your aceessibility features?",
     answers: ["HTML", "CSS", "JavaScript", "Terminal"],
-    rAns: "CSS",
+    correct: "CSS",
   },
 
   {
     question: "Which day do we not have class?",
     answers: ["Monday", "Wednesday", "Friday", "Saturday"],
-    rAns: "Saturday",
+    correct: "Saturday",
   },
 
   {
     question: "Which company created Bootsrap?",
     answers: ["Twitter", "Amazon", "Tesla", "Microsoft"],
-    rAns: "Twitter",
+    correct: "Twitter",
   },
   {
     question: "Which program do we use to write code in class?",
     answers: ["Virtual Studio Code", "Notepad", "Terminal", "Spotify"],
-    rAns: "Computer",
+    correct: "Computer",
   },
   {
     question: "Which of the following is not a browser?",
     answers: ["Chrome", "Steel", "Firefox", "Opera"],
-    rAns: "Steel",
+    correct: "Steel",
   },
   {
     question: "Which developer tool do we use to review our code in a browswer?",
     answers: ["Shoesole", "Prosole", "Console", "Solecon"],
-    rAns: "Console",
+    correct: "Console",
   },
 ];
 
@@ -87,7 +87,6 @@ function displayQuestions() {
     qnaArray[currentAns].answers.forEach(index => {
         let btnEl = document.createElement("button");
         btnEl.textContent = index
-        //addeventlistener to each btnEl created
         btnEl.addEventListener("click", checkAnswer)
         let brEl = document.createElement("br");
         answersEL.appendChild(btnEl)
@@ -97,20 +96,19 @@ function displayQuestions() {
 
 function checkAnswer(event) {
     console.log("User selected " + event.target.textContent);
-    if(event.target.textContent === qnaArray[currentAns].rAns){
+    if(event.target.textContent === qnaArray[currentAns].correct){
         console.log("Which is the correct answer.");
         tally++;
         console.log("Score is: " + tally)
-        resultsEL.innerHTML = "Correct!";
+        resultsEL.textContent = "Correct!";
     }else {
         console.log("Which is the incorrect answer.")
         timerCount = timerCount - 10;
         timeLost = timeLost + 10;
         console.log("User docked 10 seconds.")
-        resultsEL.innerHTML = "Incorrect!";
-        timerEL.textContent = "Docked 10 seconds!";
+        answersEL.textContent = "Incorrect!";
+        resultsEL.textContent = "Docked 10 seconds!";
     }
-
     currentAns++
     if((currentAns < qnaArray.length) && (timerCount > 0)){
         displayQuestions()
@@ -134,3 +132,5 @@ function endQuiz() {
     timerEL.textContent = ""
     resultsEL.textContent = "Please enter your initials: [Form Will Go Here]";
 }
+
+// I was unable to complete this assignment because I've spent hours trying to propogate information to resultsEL which dissapears after the game is started!?! //

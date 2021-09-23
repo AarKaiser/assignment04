@@ -30,7 +30,8 @@ h2 {
 }
 
 #result {
-    color: hotpink;
+    color: grey;
+    font-size: 3rem;
 }
 
 button {
