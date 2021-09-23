@@ -106,10 +106,9 @@ function checkAnswer(event) {
         timerCount = timerCount - 10;
         timeLost = timeLost + 10;
         console.log("User docked 10 seconds.")
-        answersEL.textContent = "Incorrect!";
-        resultsEL.textContent = "Docked 10 seconds!";
+        resultsEL.textContent = "Incorrect!";
     }
-    currentAns++
+    currentAns++;
     if((currentAns < qnaArray.length) && (timerCount > 0)){
         displayQuestions()
     }
@@ -118,7 +117,7 @@ function checkAnswer(event) {
 function startQuiz(event) {
   event.preventDefault();
   tally = 0;
-  startButton.textContent = "";
+  startButton.innerHTML = "";
   currentAns = 0;
   startTimer();
   displayQuestions();
