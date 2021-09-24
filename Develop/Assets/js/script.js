@@ -136,9 +136,7 @@ function endQuiz() {
     answersEL.textContent = "Your score is " + tally + "/10 which equals " + ((tally*100)/10) + "%. You were docked " + timeLost + " seconds for incorrect answers."
     timerEL.textContent = ""
     resultsEL.setAttribute("style", "color:black");
-
     resultsEL.textContent = "Please enter your initials below:"
 }
 
-
-// I was unable to complete this assignment because I've spent hours trying to propogate information to resultsEL which dissapears after the game is started!?! //
+// I was unable to complete this assignment because I've spent hours trying to propogate information to resultsEL which dI was eventuallu able to fix! (mistake was in my HTML, and I spent ten hours looking in my script). Will be working on my high scor next.//
