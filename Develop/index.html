@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aar's Quiz Game</title>
     <link rel="stylesheet" href="./Assets/css/style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav>
-            <div id="highScores">High Scores</div>
-            <div id="timeLeft"></div>
-        </nav>
+      <nav>
+        <div id="highScores">High Scores</div>
+        <div id="timeLeft"></div>
+      </nav>
     </header>
     <main>
-        <div class="quizBoard">
-            <h1 id="question">Welcome To The Coding Quiz Game!</h1>
-            <br>
-            <div id="answers"><h2>Click on the correct answers before the time (60 seconds) runs out. If you answer incorrectly, 10 seconds
-                will be deducted from your remaining time. Please press start to begin.</h2><br></div>
-            <div id="result">
-                <hr/>
-                <button id="startButton">Start</button><p>
-            </div>
+      <div class="quizBoard">
+        <h1 id="question">Welcome To The Coding Quiz Game!</h1>
+        <br />
+        <div id="answers">
+          <h2>
+            Click on the correct answers before the time (60 seconds) runs out.
+            If you answer incorrectly, 10 seconds will be deducted from your
+            remaining time. Please press start to begin.
+          </h2>
+          <br />
         </div>
+        <div id="hr"><hr /></div>
+        <div id="result">
+          <button id="startButton">Start</button>
+      </div>
     </main>
     <script src="Assets/js/script.js"></script>
-</body>
-
+  </body>
 </html>

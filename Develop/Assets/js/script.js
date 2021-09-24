@@ -1,16 +1,18 @@
 let timerEL = document.querySelector("#timeLeft");
 let questionEL = document.querySelector("#question");
 let answersEL = document.querySelector("#answers");
+let hrEl = document.querySelector("#hr");
 let resultsEL = document.querySelector("#result")
 let scoresEl = document.querySelector("#highScores");
+let formEl = document.querySelector("#form")
 let startBTN = document.querySelector("#startButton");
 let quizBoard = document.querySelector("#quizBoard")
 
 let timer;
 let timerCount = 60;
+let timeLost = 0;
 let tally;
 let currentAns;
-let timeLost = 0;
 
 let qnaArray = [
   {
@@ -35,7 +37,7 @@ let qnaArray = [
     correct: "Hard",
   },
   {
-    question: "Where is it best practice to code your aceessibility features?",
+    question: "Where is it best practice to code your accessibility features?",
     answers: ["HTML", "CSS", "JavaScript", "Terminal"],
     correct: "CSS",
   },
@@ -54,7 +56,7 @@ let qnaArray = [
   {
     question: "Which program do we use to write code in class?",
     answers: ["Virtual Studio Code", "Notepad", "Terminal", "Spotify"],
-    correct: "Computer",
+    correct: "Virtual Studio Code",
   },
   {
     question: "Which of the following is not a browser?",
@@ -73,6 +75,7 @@ function startTimer() {
   timer = setInterval(function () {
     timerCount--;
     timerEL.textContent = "Time Left: " + timerCount;
+    timerEL.setAttribute("style", "color: black");
     // console.log("Timer Count: " + timerCount);
     if (timerCount <= 0 || currentAns >= qnaArray.length) {
       endQuiz();
@@ -81,7 +84,6 @@ function startTimer() {
 }
 
 function displayQuestions() {
-
     questionEL.textContent = qnaArray[currentAns].question;
     answersEL.innerHTML = ''
     qnaArray[currentAns].answers.forEach(index => {
@@ -89,8 +91,8 @@ function displayQuestions() {
         btnEl.textContent = index
         btnEl.addEventListener("click", checkAnswer)
         let brEl = document.createElement("br");
-        answersEL.appendChild(btnEl)
-        answersEL.appendChild(brEl)
+        answersEL.appendChild(btnEl);
+        answersEL.appendChild(brEl);
     })
 }
 
@@ -100,13 +102,16 @@ function checkAnswer(event) {
         console.log("Which is the correct answer.");
         tally++;
         console.log("Score is: " + tally)
-        resultsEL.textContent = "Correct!";
+        resultsEL.setAttribute("style", "color:blue")
+        resultsEL.textContent = "Right!";
     }else {
         console.log("Which is the incorrect answer.")
         timerCount = timerCount - 10;
         timeLost = timeLost + 10;
-        console.log("User docked 10 seconds.")
-        resultsEL.textContent = "Incorrect!";
+        console.log("User docked 10 seconds.");
+        resultsEL.setAttribute("style", "color:red")
+        resultsEL.innerHTML = "Wrong!";
+        timerEL.setAttribute("style", "color:red");
     }
     currentAns++;
     if((currentAns < qnaArray.length) && (timerCount > 0)){
@@ -118,6 +123,7 @@ function startQuiz(event) {
   event.preventDefault();
   tally = 0;
   startButton.innerHTML = "";
+  startButton.setAttribute("style", "background-color: white; border: 0px")
   currentAns = 0;
   startTimer();
   displayQuestions();
@@ -129,7 +135,10 @@ function endQuiz() {
     alert("Game Over!");
     answersEL.textContent = "Your score is " + tally + "/10 which equals " + ((tally*100)/10) + "%. You were docked " + timeLost + " seconds for incorrect answers."
     timerEL.textContent = ""
-    resultsEL.textContent = "Please enter your initials: [Form Will Go Here]";
+    resultsEL.setAttribute("style", "color:black");
+
+    resultsEL.textContent = "Please enter your initials below:"
 }
+
 
 // I was unable to complete this assignment because I've spent hours trying to propogate information to resultsEL which dissapears after the game is started!?! //

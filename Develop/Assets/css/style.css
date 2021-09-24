@@ -30,7 +30,6 @@ h2 {
 }
 
 #result {
-    color: grey;
     font-size: 1.25rem;
 }
 
@@ -50,4 +49,8 @@ button:hover {
     border-color: lightblue;
     opacity: 1;
   
+}
+
+#hr {
+    margin: 10px 0 10px 0;
 }
