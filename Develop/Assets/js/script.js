@@ -130,13 +130,13 @@ function startQuiz(event) {
 }
 
 function endQuiz() {
-    clearInterval(timer);
-    questionEL.textContent = "Quiz Results:";
-    alert("Game Over!");
-    answersEL.textContent = "Your score is " + tally + "/10 which equals " + ((tally*100)/10) + "%. You were docked " + timeLost + " seconds for incorrect answers."
     timerEL.textContent = ""
+    clearInterval(timer);
+    alert("Game Over!");
+    questionEL.textContent = "Quiz Results:";
+    answersEL.textContent = "Your score is " + tally + "/10 which equals " + ((tally*100)/10) + "%. You were docked " + timeLost + " seconds for incorrect answers."
     resultsEL.setAttribute("style", "color:black");
-    resultsEL.textContent = "Please enter your initials below:"
+    resultsEL.textContent = "Please enter your initials below:" + "[FORM GOES HERE]"
 }
 
 // function displayHS {
