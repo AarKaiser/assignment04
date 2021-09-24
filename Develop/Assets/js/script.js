@@ -139,4 +139,8 @@ function endQuiz() {
     resultsEL.textContent = "Please enter your initials below:"
 }
 
+// function displayHS {
+//   scoresEl.innerHTML: ""
+// } 
+
 // I was unable to complete this assignment because I've spent hours trying to propogate information to resultsEL which dI was eventuallu able to fix! (mistake was in my HTML, and I spent ten hours looking in my script). Will be working on my high scor next.//
