@@ -196,7 +196,7 @@ function displayHS() {
   let highscores=JSON.parse(localStorage.getItem("hsArray")) 
    for (let i = 1; i < highscores.length; i++) {
   console.log(highscores[i].intials + highscores[i].score)
-    answersEL.innerHTML += `<p>${highscores[i].intials} ${highscores[i].score}</p>`;
+    answersEL.innerHTML += `<p>${highscores[i].intials} ${highscores[i].score}%</p>`;
    }
   exitHS();
 }
@@ -206,6 +206,7 @@ function displayHS() {
 function exitHS () {
   formEl.innerHTML=`<button id="startButton><a href="index.html">Return To Game</a></button>`;
   timerCount = 60;
+  timerEL.textContent = "";
 }
 
  // End of Javascript.
