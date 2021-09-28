@@ -161,7 +161,7 @@ function endQuiz() {
     clearInterval(timer);
     alert("Game Over!");
     questionEL.textContent = "Quiz Results:";
-    answersEL.textContent = "Your score is " + tally + "/10 which equals " + ((tally*100)/10) + "%. You were docked " + timeLost + " seconds for incorrect answers."
+    answersEL.textContent = "Your score is " + tally + "/10 which equals " + ((tally*100)/10) + ". You were docked " + timeLost + " seconds for incorrect answers."
     resultsEL.setAttribute("style", "color:black");
     resultsEL.textContent = "Please enter your initials below:"
     hsButton.addEventListener("click", getHS);
