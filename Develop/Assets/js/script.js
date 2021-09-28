@@ -15,7 +15,7 @@ let hsButton = document.querySelector("#hsButton");
 // Defining global variables.
 
 let timer;
-let timerCount = 10;
+let timerCount = 60;
 let timeLost = 0;
 let tally;
 let currentAns;
