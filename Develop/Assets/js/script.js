@@ -161,7 +161,7 @@ function endQuiz() {
     clearInterval(timer);
     alert("Game Over!");
     questionEL.textContent = "Quiz Results:";
-    answersEL.textContent = "Your score is " + tally + "/10 which equals " + ((tally*100)/10) + ". You were docked " + timeLost + " seconds for incorrect answers."
+    answersEL.textContent = "Your score is " + tally + "/10 which equals " + ((tally*100)/10) + "%. You were docked " + timeLost + " seconds for incorrect answers."
     resultsEL.setAttribute("style", "color:black");
     resultsEL.textContent = "Please enter your initials below:"
     hsButton.addEventListener("click", getHS);
@@ -194,9 +194,10 @@ function displayHS() {
   hsButton.textContent ="";
   hsButton.setAttribute("style", "color: white; background-color: white; border: 0px;")
   let highscores=JSON.parse(localStorage.getItem("hsArray")) 
+  highscores.sort();
    for (let i = 1; i < highscores.length; i++) {
   console.log(highscores[i].intials + highscores[i].score)
-    answersEL.innerHTML += `<p>${highscores[i].intials} ${highscores[i].score}%</p>`;
+    answersEL.innerHTML += `<p>${highscores[i].intials} ${highscores[i].score}</p>`;
    }
   exitHS();
 }
