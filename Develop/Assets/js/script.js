@@ -1,3 +1,5 @@
+// Tieing variables to html elements.
+
 let timerEL = document.querySelector("#timeLeft");
 let questionEL = document.querySelector("#question");
 let answersEL = document.querySelector("#answers");
@@ -6,13 +8,19 @@ let resultsEL = document.querySelector("#result")
 let scoresEl = document.querySelector("#highScores");
 let formEl = document.querySelector("#form")
 let startBTN = document.querySelector("#startButton");
-let quizBoard = document.querySelector("#quizBoard")
+let quizBoard = document.querySelector("#quizBoard");
+let inputEl = document.querySelector("#hsInitials");
+let hsButton = document.querySelector("#hsButton");
+
+// Defining global variables.
 
 let timer;
-let timerCount = 60;
+let timerCount = 10;
 let timeLost = 0;
 let tally;
 let currentAns;
+
+// Setting up arrays.
 
 let qnaArray = [
   {
@@ -70,6 +78,17 @@ let qnaArray = [
   },
 ];
 
+hsArray = JSON.parse(localStorage.getItem("hsArray"))||[
+  {intials: "Undefined",
+  score: "Undefined",
+}
+]
+
+// Initializing landing page.
+
+highScores.addEventListener("click", displayHS);
+hsButton.setAttribute("style", "border: 0px; background-color: white");
+inputEl.setAttribute("style", "border: 0px")
 startButton.addEventListener("click", startQuiz);
 function startTimer() {
   timer = setInterval(function () {
@@ -83,6 +102,8 @@ function startTimer() {
   }, 1000);
 }
 
+// Function to display the questions
+
 function displayQuestions() {
     questionEL.textContent = qnaArray[currentAns].question;
     answersEL.innerHTML = ''
@@ -95,6 +116,8 @@ function displayQuestions() {
         answersEL.appendChild(brEl);
     })
 }
+
+// Function to confirm whether answer is right or wrong.
 
 function checkAnswer(event) {
     console.log("User selected " + event.target.textContent);
@@ -119,6 +142,8 @@ function checkAnswer(event) {
     }
 }
 
+// Function to start quiz.
+
 function startQuiz(event) {
   event.preventDefault();
   tally = 0;
@@ -129,18 +154,59 @@ function startQuiz(event) {
   displayQuestions();
 }
 
+// Function to end quiz.
+
 function endQuiz() {
-    timerEL.textContent = ""
+    timerEL.textContent = "";
     clearInterval(timer);
     alert("Game Over!");
     questionEL.textContent = "Quiz Results:";
     answersEL.textContent = "Your score is " + tally + "/10 which equals " + ((tally*100)/10) + "%. You were docked " + timeLost + " seconds for incorrect answers."
     resultsEL.setAttribute("style", "color:black");
-    resultsEL.textContent = "Please enter your initials below:" + "[FORM GOES HERE]"
+    resultsEL.textContent = "Please enter your initials below:"
+    hsButton.addEventListener("click", getHS);
+    inputEl.setAttribute("style", "border: 5px; background-color: lightblue");
+    hsButton.setAttribute("style", "border: 5px; background-color: blue");
+    
 }
 
-// function displayHS {
-//   scoresEl.innerHTML: ""
-// } 
+//Function to get high score.
 
-// I was unable to complete this assignment because I've spent hours trying to propogate information to resultsEL which dI was eventuallu able to fix! (mistake was in my HTML, and I spent ten hours looking in my script). Will be working on my high scor next.//
+function getHS() {
+
+  let initials=inputEl.value
+  hsArray.push( {intials:initials.toUpperCase(),
+  score: tally})
+  console.log(hsArray)
+  localStorage.setItem("hsArray", JSON.stringify(hsArray));
+  displayHS();
+
+}
+
+//Function to display high scores.
+
+function displayHS() {
+  console.log("Displays HS")
+  questionEL.textContent = "High Scores:";
+  answersEL.textContent = "";
+  resultsEL.innerHTML = "";
+  formEl.innerHTML="";
+  hsButton.textContent ="";
+  hsButton.setAttribute("style", "color: white; background-color: white; border: 0px;")
+  let highscores=JSON.parse(localStorage.getItem("hsArray")) 
+   for (let i = 1; i < highscores.length; i++) {
+  console.log(highscores[i].intials + highscores[i].score)
+    answersEL.innerHTML += `<p>${highscores[i].intials} ${highscores[i].score}</p>`;
+   }
+  exitHS();
+}
+
+// Function to exit high scores.
+
+function exitHS () {
+  formEl.innerHTML=`<button id="startButton><a href="index.html">Return To Game</a></button>`;
+}
+
+ // End of Javascript.
+
+ // Took me forever to fully compete this. Imperfect, ineffecient, but it works!

@@ -54,3 +54,15 @@ button:hover {
 #hr {
     margin: 10px 0 10px 0;
 }
+
+#form {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 2px;
+    border-color:10px blue;
+    border: 5px;
+}
+
+#highScores:hover {
+    color: blue;
+}
