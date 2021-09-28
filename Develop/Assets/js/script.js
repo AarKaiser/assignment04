@@ -205,6 +205,7 @@ function displayHS() {
 
 function exitHS () {
   formEl.innerHTML=`<button id="startButton><a href="index.html">Return To Game</a></button>`;
+  timerCount = 60;
 }
 
  // End of Javascript.
