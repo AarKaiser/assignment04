@@ -208,7 +208,7 @@ function displayHS() {
   highscores.sort();
   for (let i = 1; i < highscores.length; i++) {
     console.log(highscores[i].initials + highscores[i].score);
-    answersEL.innerHTML += `<p>${highscores[i].intials} ${highscores[i].score}</p>`;
+    answersEL.innerHTML += `<p>${highscores[i].initials} ${highscores[i].score}</p>`;
   }
   exitHS();
 }
