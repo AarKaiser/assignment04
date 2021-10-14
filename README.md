@@ -8,6 +8,12 @@ Contents of this folder are:
 4) These files are all hosted on a repository and the finished assignment can be accessed directly at "https://aarkaiser.github.io/code_quiz/Develop/" on  a browswer.
 5) The Github repo for the assignment is available at "https://github.com/AarKaiser/code_quiz"
 
+Technologies Used:
+
+1. HTML
+2. CSS
+3. JavaScript
+
 Website Mockup:
 
 <img width="1434" alt="Deployed Project Screenshot Screen Shot" src="https://user-images.githubusercontent.com/87316518/134448673-f6ed1526-4e46-4799-a123-d0cf89596cfa.png">
